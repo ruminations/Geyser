@@ -233,9 +233,9 @@ To be amended.
 
 9 Design power drive electronics.
 
-10 Select a SOC for the control system and design PCB
+10 Select a SOC for the control system and design PCB.
 
-11 Code the control system
+11 Code the control system.
 
 ----------
 ## Glossary
@@ -282,7 +282,7 @@ The purpose of this glossary is to distinguish between historical plastics indus
 
 * __Granule__
 
-  An inexpensive commodity plastic feed feedstock used historically in extrusion operations.  3D printers may be easily adapted to granular feedstock, given a suitable extruder design.
+  An inexpensive commodity plastic feedstock used historically in extrusion operations.  3D printers may be easily adapted to granular feedstock, given a suitable extruder design.
 
 * __~~Hot End~~__
 
