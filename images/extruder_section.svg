@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- copyright August 2018 John Hull, ASSAIL licensed:
+     https://github.com/ruminations/Licenses -->
+<!DOCTYPE svg [
+  <!ENTITY x_extent  "10.0">
+  <!ENTITY x_view   "500.0">
+  <!ENTITY y_extent  "10.0">
+  <!ENTITY y_view   "500.0">
+  <!ENTITY radius12ga "1.02616"><!-- 12 gauge wire radius in mm -->
+  <!ENTITY dia12ga    "2.05232"><!-- 12 gauge wire diameter in mm -->
+  <!ENTITY tube_out_r "1.5875"> <!-- 1/8" tubing OD radius in mm -->
+  <!ENTITY tube_in_r  "1.19063"><!-- 3/32" tubing ID radius in mm -->
+  <!ENTITY tube_wall  "0.39688"><!-- 1/64" tubing wall in mm -->
+  <!ENTITY cart_out_r "22.225"> <!-- 1 3/4" tubing OD radius in mm -->
+  <!ENTITY cart_in_r  "20.1168"><!-- #14 wall tubing ID radius in mm -->
+  <!ENTITY cart_out_d "44.45">  <!-- 1 3/4" tubing OD in mm -->
+  <!ENTITY cart_len   "70.0">   <!-- 1 3/4" tubing length in mm -->
+  ]>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     enable-background="new 0 0 &x_view; &y_view;"
+     width="&x_extent;cm" height="&y_extent;cm"
+     viewBox="0 0 &x_view; &y_view;" x="0px"  y="0px">
+  <g id="group_0" transform="translate(250.0,400.0) scale(1.0,-1.0)">
+    <rect id="background" x="-250.0" y="-100.0"
+      width="500.0" height="500.0"
+      fill="#FFFF99" stroke-linejoin="miter"/>
+    <g id="assembly" transform="scale(5.0,5.0)"><!-- 1 mm == 1.0 in this group -->
+      <!-- <text id="text_0" text-anchor="middle"
+        dominant-baseline="text-before-edge"
+        font-family="Arial" font-size="3.97811"
+        transform="translate(-220.58875,-0.99453) scale(1.0,-1.0)"
+        fill="#404040" stroke-width="0.0">example text</text> -->
+      <defs id="defs_0">
+        <g id="sensor">
+          <!-- Steel washer section outline material: 304 stainless steel -->
+          <path id="washer" d="
+              M -5.0,0.0
+              L -2.69060,-4.0
+              L -&cart_in_r;,-4.0
+              L -&cart_in_r;,0.0
+              L -16.0,0.0
+              L -16.0,-3.0
+              L -6.0,-3.0
+              L -6.0,0.0
+              L -5.0,0.0
+              M 5.0,0.0
+              L 2.69060,-4.0
+              L &cart_in_r;,-4.0
+              L &cart_in_r;,0.0
+              L 16.0,0.0
+              L 16.0,-3.0
+              L 6.0,-3.0
+              L 6.0,0.0
+              L 5.0,0.0
+            "
+            fill="SlateGray" stroke="none"
+            stroke-width="0.0" stroke-linejoin="round"/>
+        </g>
+        <g id="wire12ga">
+          <!-- conductor and silicone insulating tubing cross section -->
+          <circle cx="0.0" cy="0.0"
+            stroke="none" stroke-width="0"
+            fill="Maroon" r="&tube_out_r;"/>
+          <circle cx="0.0" cy="0.0"
+            stroke="none" stroke-width="0"
+            fill="white" r="&tube_in_r;"/>
+          <circle cx="0.0" cy="0.0"
+            stroke="none" stroke-width="0"
+            fill="Chocolate" r="&radius12ga;"/>
+        </g>
+        <g id="coil_0">
+          <!-- 5 turn 12 gauge (.0808"==2.05232 mm) double pancake coil with
+               1/8 " x 3/32 " silicone tube insulation -->
+          <!-- use id="l_turn_00" xlink:href="#wire12ga"
+            transform="translate(-17.0,-1.75) scale(1.0,-1.0)" / -->
+          <use id="r_turn_00" xlink:href="#wire12ga"
+            transform="translate(15.25,-1.75) scale(1.0,-1.0)" />
+          <use id="l_turn_01" xlink:href="#wire12ga"
+            transform="translate(-13.5,-1.75) scale(1.0,-1.0)" />
+          <use id="r_turn_01" xlink:href="#wire12ga"
+            transform="translate(11.75,-1.75) scale(1.0,-1.0)" />
+          <use id="l_turn_02" xlink:href="#wire12ga"
+            transform="translate(-10.0,-1.75) scale(1.0,-1.0)" />
+          <use id="r_turn_12" xlink:href="#wire12ga"
+            transform="translate(10.0,1.75) scale(1.0,-1.0)" />
+          <use id="l_turn_13" xlink:href="#wire12ga"
+            transform="translate(-11.75,1.75) scale(1.0,-1.0)" />
+          <use id="r_turn_13" xlink:href="#wire12ga"
+            transform="translate(13.5,1.75) scale(1.0,-1.0)" />
+          <use id="l_turn_4" xlink:href="#wire12ga"
+            transform="translate(-15.25,1.75) scale(1.0,-1.0)" />
+          <!-- use id="r_turn_4" xlink:href="#wire12ga"
+            transform="translate(17.0,1.75) scale(1.0,-1.0)" / -->
+          <path id="leads" d="
+              M -17.0,-1.75
+              L -30.0,-1.75
+              M 17.0,1.75
+              L 30.0,1.75
+            "
+            fill="none" stroke="Chocolate"
+            stroke-width="&dia12ga;" stroke-linecap="round"/>
+          <path id="lead_tubes" d="
+              M -27.0,-3.13906
+              L -17.0,-3.13906
+              A 1.3890625,1.3890625 0 0 1 -17.0,-0.36094
+              L -27.0,-0.36094
+              M 27.0,3.13906
+              L 17.0,3.13906
+              A 1.3890625,1.3890625 0 0 1  17.0,0.36094
+              L 27.0,0.36094
+            "
+            fill="none" stroke="Maroon"
+            stroke-width="&tube_wall;" stroke-linejoin="miter"/>
+          <path id="lead_tube_space" d="
+              M -27.0,-2.8583925
+              L -17.0,-2.8583925
+              A 1.1083925,1.1083925 0 0 1 -17.0,-0.6416075
+              L -27.0,-0.6416075
+              M 27.0,2.8583925
+              L 17.0,2.8583925
+              A 1.1083925,1.1083925 0 0 1 17.0,0.6416075
+              L 27.0,0.6416075
+            "
+            fill="none" stroke="White"
+            stroke-width="0.164465" stroke-linejoin="miter"/>
+        </g>
+        <g id="wire20ga">
+          <!-- conductor and polymer film insulation -->
+          <circle cx="0.0" cy="0.0"
+            stroke="none" stroke-width="0"
+            fill="Maroon" r="0.45"/>
+          <circle cx="0.0" cy="0.0"
+            stroke="none" stroke-width="0"
+            fill="Chocolate" r="0.4064"/>
+        </g>
+        <g id="coil_1">
+          <!-- 5 turn 20 gauge (.032"==.8128 mm) double pancake magnet wire coil -->
+          <!-- use id="l_turn_00" xlink:href="#wire20ga"
+            transform="translate(-17.0,-0.5) scale(1.0,-1.0)" / -->
+          <use id="r_turn_00" xlink:href="#wire20ga"
+            transform="translate(16.5,-0.5) scale(1.0,-1.0)" />
+          <use id="l_turn_01" xlink:href="#wire20ga"
+            transform="translate(-16.0,-0.5) scale(1.0,-1.0)" />
+          <use id="r_turn_01" xlink:href="#wire20ga"
+            transform="translate(15.5,-0.5) scale(1.0,-1.0)" />
+          <use id="l_turn_02" xlink:href="#wire20ga"
+            transform="translate(-15.0,-0.5) scale(1.0,-1.0)" />
+          <use id="r_turn_12" xlink:href="#wire20ga"
+            transform="translate(15.0,0.5) scale(1.0,-1.0)" />
+          <use id="l_turn_13" xlink:href="#wire20ga"
+            transform="translate(-15.5,0.5) scale(1.0,-1.0)" />
+          <use id="r_turn_13" xlink:href="#wire20ga"
+            transform="translate(16.0,0.5) scale(1.0,-1.0)" />
+          <use id="l_turn_4" xlink:href="#wire20ga"
+            transform="translate(-16.5,0.5) scale(1.0,-1.0)" />
+          <!-- use id="r_turn_4" xlink:href="#wire20ga"
+            transform="translate(17.0,0.5) scale(1.0,-1.0)" / -->
+          <path id="leads" d="
+              M -17.0,-0.5
+              L -30.0,-0.5
+              M 17.0,0.5
+              L 30.0,0.5
+            "
+            fill="none" stroke="Chocolate"
+            stroke-width="0.8128" stroke-linecap="round"/>
+          <path id="insulation" d="
+              M -27.0,-0.9282
+              L -17.0,-0.9282
+              A 0.4282,0.4282 0 0 1 -17.0,-0.0718
+              L -27.0,-0.0718
+              M 27.0,0.9282
+              L 17.0,0.9282
+              A 0.4282,0.4282 0 0 1  17.0,0.0718
+              L 27.0,0.0718
+            "
+            fill="none" stroke="Maroon"
+            stroke-width=".0436" stroke-linejoin="miter"/>
+        </g>
+        <g id="optical_fiber">
+          <!-- Fiber leading infrared radiation to an elctro-optical pyrometer -->
+          <path id="fiber" d="
+              M 0.25,0.0
+              L 20.0,0.0
+            "
+            fill="none" stroke="CadetBlue"
+            stroke-width="1.5" stroke-linejoin="round"/>
+        </g>
+        <linearGradient
+          id="cart_grad" gradientUnits="objectBoundingBox"
+          x2="0%" x1="100%">
+            <stop stop-color="AliceBlue" offset="0%"/>
+            <stop stop-color="PowderBlue" offset="24%"/>
+            <stop stop-color="CadetBlue" offset="50%"/>
+            <stop stop-color="PowderBlue" offset="76%"/>
+            <stop stop-color="AliceBlue" offset="100%"/>
+        </linearGradient>
+      </defs>
+      <!-- Cartridge background -->
+      <rect id="cartridge_background" x="-&cart_out_r;" y="-4.0"
+        width="&cart_out_d;" height="&cart_len;"
+        fill="url(#cart_grad)" stroke-linejoin="round"/>
+      <!-- Die section outline material: tool steel -->
+      <path id="die" d="
+          M -0.2,-0.92376
+          L -0.2,-6.06218
+          L -1.5,-6.06218
+          L -5.0,0.0
+          L -5.0,23.0
+          L -4.747816022692241,48.43679546155183563
+          L -1.5,54.06218
+          L -1.0,54.06218
+          L -1.0,0.0
+          L -0.2,-0.92376
+          M 0.2,-0.92376
+          L 0.2,-6.06218
+          L 1.5,-6.06218
+          L 5.0,0.0
+          L 5.0,23.0
+          L 4.747816022692241,48.43679546155183563
+          L 1.5,54.06218
+          L 1.0,54.06218
+          L 1.0,0.0
+          L 0.2,-0.92376
+        "
+        fill="SteelBlue" stroke="none"
+        stroke-width="0.0" stroke-linejoin="round"/>
+      <!-- Die section outline material: tool steel -->
+      <path id="carbide" d="
+          M -0.2,-0.92376
+          L -0.2,-6.06218
+          L -1.0,-6.06218
+          L -1.0,0.0
+          L -0.2,-0.92376
+          M 0.2,-0.92376
+          L 0.2,-6.06218
+          L 1.0,-6.06218
+          L 1.0,0.0
+          L 0.2,-0.92376
+        "
+        fill="DarkGoldenRod" stroke="none"
+        stroke-width="0.0" stroke-linejoin="round"/>
+      <!-- Molten plastic section outline -->
+      <path id="molten" d="
+          M 0.2,-0.92376
+          L 0.2,-6.06218
+          L -0.2,-6.06218
+          L -0.2,-0.92376
+          L -1.0,0.0
+          L -1.0,6.0
+          A 1.0,1.0 0 0 0 1.0,6.0
+          L 1.0,0.0
+          L 0.2,-0.92376
+        "
+        fill="Orange" stroke="none"
+        stroke-width="0.0" stroke-linejoin="round"/>
+      <!-- Filament section outline -->
+      <rect id="filament" x="-0.875" y="8.0" width="1.75" height="66.0"
+        fill="Brown" stroke-linejoin="round"/>
+      <!-- Plastic section outline -->
+      <path id="plastic" d="
+          M -1.0,8.0
+          L -1.0,6.0
+          A 1.0,1.0 0 0 0 1.0,6.0
+          L 1.0,8.0
+          A 1.0,1.0 0 0 1 -1.0,8.0
+        "
+        fill="Red" stroke="none"
+        stroke-width="0.0" stroke-linejoin="round"/>
+      <!-- Silicone section outline material: high temperature silicone tubing -->
+      <rect id="silicone_l" x="-6.0" y="0.0"
+        width="1.0" height="23.0"
+        fill="Maroon" stroke-linejoin="round"/>
+      <rect id="silicone_r" x="5.0" y="0.0"
+        width="1.0" height="23.0"
+        fill="Maroon" stroke-linejoin="round"/>
+      <use id="lower_sensor" xlink:href="#sensor"
+        transform="translate(0.0,0.0) scale(1.0,1.0)" />
+      <use id="upper_sensor" xlink:href="#sensor"
+        transform="translate(0.0,48.0) scale(1.0,-1.0)" />
+      <!-- Cartridge section outline material: 6061 aluminum tubing -->
+      <rect id="cartridge" x="-22.0" y="-4.0"
+        width="2.0" height="&cart_len;"
+        fill="Silver" stroke-linejoin="round"/>
+      <rect id="cartridge" x="20.0" y="-4.0"
+        width="2.0" height="&cart_len;"
+        fill="Silver" stroke-linejoin="round"/>
+      <use id="heating_coil" xlink:href="#coil_0"
+        transform="translate(0.0,5.0) scale(1.0,1.0)" />
+      <use id="top_heating_coil" xlink:href="#coil_1"
+        transform="translate(0.0,45.0) scale(1.0,1.0)" />
+      <use id="hot_fiber" xlink:href="#optical_fiber"
+        transform="translate(5.0,0.75) scale(1.0,1.0)" />
+      <use id="warm_fiber" xlink:href="#optical_fiber"
+        transform="translate(5.0,22.25) scale(1.0,1.0)" />
+      <use id="cool_fiber" xlink:href="#optical_fiber"
+        transform="translate(5.0,47.25) scale(1.0,-1.0)" />
+    </g>
+  </g>
+</svg>
