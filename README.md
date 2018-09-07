@@ -102,9 +102,14 @@ Changing die orfice, filament diameter, material, or color in such a setting is 
 ----------
 ## Design
 
-To begin with, only a sectional drawing is offered.  Specific geometric information is contained in the text of the `.svg` file in the `images` directory, along with some useful commentary.  All detail is subject to change.
+To begin with, only a sectional drawing is offered.  Specific geometric information is contained in the text of the `.svg` files in the `images` directory, along with some useful commentary.  All detail is subject to change.
 
 ![Extruder Assembly Section](./images/extruder_section.svg)
+
+Additionally, the following `.svg` details the strain gauge washers:
+
+![Strain Gauge Layout](./images/strain_gauge.svg)
+
 
 #### Components
 
@@ -116,7 +121,7 @@ The components visible in the sectional drawing are substantially all circular a
 
 * The _die_ (steel blue) is machined from stock dimensional 1 cm diameter drill rod (tool steel), and as such is a ferro-magnetic and electrically conductive material with relatively high resistivity and heat capacity (thermal mass).
 
-> The top end carries a heat sink (not shown) that mates with the standard metric taper pin shank (1:50 included angle) of the die.  This facilitates fabrication with common tools and provides a jam fit for good thermal coupling.
+> The top end carries an aluminum heat sink (not shown) that mates with the standard metric taper pin shank (1:50 included angle) of the die.  This facilitates fabrication with common tools and provides a jam fit for good thermal coupling.
 
 > The dark goldenrod orifice is a tungsten carbide insert.  It is installed using the same method for placing valve seats in engine blocks: the insert is cooled in liquid nitrogen so that it shrinks.  When placed in the 2 mm bore it warms to form an interference fit with the tool steel.  This yields a highly thermally conductive orifice whose geometry endures abrasive materials.  The orifice itself is best formed by electrical discharge machining (EDM).  Alternatively, for less demanding use, the orifice may be formed in the tool steel with two drilling operations, or may be a hardened tool steel insert.
 
@@ -124,13 +129,13 @@ The components visible in the sectional drawing are substantially all circular a
 
 * The _filament_ is brown, becoming red in its molten transition region, and orange where it is molten.
 
-* The _strain gauge washers_ (slate gray) are machined from stock dimensional 304 stainless steel, and are therefore non-magnetic at room and operating temperatures.  The washers are coated with boron-nitride, a high temperature electrically insulating finish that is available in a spray can and is baked on after application.  The thin section is 1 mm thick and so is slightly flexible.  The strain gauge conductive pattern is printed on both sides on the surface of the thin section.
+* The _strain gauge washers_ (slate gray) are machined from stock dimensional 304 stainless steel, and are therefore non-magnetic at room and operating temperatures.  The washers are coated with boron-nitride, a high temperature electrically insulating finish that is available in a spray can and is baked on after application.  The thin section is 1 mm thick and so is slightly flexible.  The strain gauge conductive pattern is printed on both sides on the surface of the thin section.  The geometry of the gauge is depicted in `strain_gauge.svg`, with the inside face to the left and the outside face to the right.
 
-> Initially this pattern will be formed in copper foil annuli, pressed into the boron-nitride carrier solvent prior to baking. Post baking, the gauge itself is  etched from the foil using common PCB lithographic processes.  Ultimately, this pattern should be etched from a sputtered titanium nitride layer in order to improve the gauge factor, typically 2 for copper but about 6 for titanium nitride, which is comparatively resistive.
+> Initially these patterns will be formed in copper foil annuli, pressed into the boron-nitride carrier solvent prior to baking. Post baking, the gauge itself is  etched from the foil using common PCB lithographic processes.  Ultimately, these patterns should be etched from a sputtered titanium nitride layer in order to improve the gauge factor, typically 2 for copper but about 6 for titanium nitride, which is comparatively resistive.
 
-> The process permits feed throughs, so each washer is wired into a half bridge in-situ and three signal leads emerge from the washer face inside the cartridge, passing through the cartridge wall to the control electronics.
+> The process permits feed throughs, so each washer is wired into a half bridge in-situ and three signal leads are connected to a standard Berg style .1" on center 3-pin modular header on the washer face inside the cartridge, and pass through the cartridge wall to the control electronics.  The small gold squares in the diagram correspond to the header pins, which are trimmed flush on the outside and extend vertically on the inside.
 
-> The washer edge is threaded to mate with the cartridge.  Two small holes are drilled in the exposed surface to accept a spanner.
+> The washer edge is threaded to mate with the cartridge.  Two small blind holes are drilled in the exposed surface to accept a spanner.  These holes are depicted in cadet blue in the right half of the diagram.
 
 * The lower part of the die is sheathed by a length of stock dimensional silicone tubing (Maroon).  This provides thermal insulation for the hot end of the die.
 
@@ -157,7 +162,7 @@ Therefore, equilibrium of forces requires that the force imposed on the filament
 
 The hydraulic pressure is imposed upon the interior part of the orifice insert flanking the orifice hole, pushing the die and heatsink assembly slightly downward, cupping the bottom washer and uncupping the top washer slightly, imposing elastic deformation on the strain gauge conductive paths.
 
-The two gauges at the bottom are in thermal equalibrium and the two gauges at the top are at thermal equilibrium, nulling any temperature coefficient intrinsic to the gauge wires.  The four gauges are connected in a full bridge, doubling the intrinsic gauge factor.  The center of the bridge is connected to a differential instrumentation amplifier, nulling any common mode cross talk picked up from the inductive heating coils.
+The two gauges at the bottom are in thermal equalibrium and the two gauges at the top are in thermal equilibrium, nulling any temperature coefficient intrinsic to the gauge wires.  The four gauges are connected in a full bridge, doubling the intrinsic gauge factor.  The center of the bridge is connected to a differential instrumentation amplifier, nulling any common mode cross talk picked up from the inductive heating coils.
 
 There is a thermal gradient from the hot end of the die to the hot end of the heat sink.  Cooling steam flows downward in a counterflow arrangement through the heat sink, setting up another thermal gradient, referenced to the boiling point of water.  The three pyrometers monitor these gradients.  For PLA, the transition temperature is about 165°C.  The hot end of the die would be maintained at about 185°C, and the hot end of the heat sink would be maintained at about 145°C.  That stabilizes the position of the molten transition in the die.
 
@@ -171,7 +176,7 @@ Knowing the temperature, and hence the viscosity of the molten PLA, together wit
 
 By correlating instantaneous pressure with instantaneous carriage velocity, constant material delivery is achieved.  In turn, the instantaneous pressure is controlled by the 'piston', i.e. the solid part of the filament, and that in turn is controlled by the filament feeder position.  By turning the filament feeder backward, zero relative pressure may be achieved, effectively turning the flow of material off.  By turning the feeder backward even more, a dynamic negative pressure can even be created, effectively cutting an incipient 'string' prior to rapid carriage movement.
 
-Thus closed loop control of pressure is achieved, and thereby exacting control over the rate of delivery of molten material from the extruder assembly.  In turn, just the right amount of material is delivered, dynamically correlated with carriage travel, without gaps or burbles.
+Thus closed loop control of pressure is achieved, and thereby exacting control over the rate of delivery of molten material from the extruder assembly.  In turn, just the right amount of material is consistently delivered, dynamically correlated with carriage travel, without gaps or burbles.
 
 Steam emanating from the integral fang keeps previously printed material proximal to the new voxels at an elevated temperature.  This anneals the printed material, mitigating residual strain in the printed material.  Moreover, the warm material forms a more secure bond with newly deposited voxels by making better use of the limited heat capacity of the molten plastic.  This mitigates de-lamination issues.  The vortical flow of the outflow from the fang creates an 'eye of the hurricane' at the die orifice, leaving still molten material undisturbed, and indeed, providing some aerodynamic stabilization and localization to that molten material. 
 

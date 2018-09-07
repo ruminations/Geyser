@@ -75,23 +75,23 @@
           <!-- use id="l_turn_00" xlink:href="#wire12ga"
             transform="translate(-17.0,-1.75) scale(1.0,-1.0)" / -->
           <use id="r_turn_00" xlink:href="#wire12ga"
-            transform="translate(15.25,-1.75) scale(1.0,-1.0)" />
+            transform="translate(15.25,-1.75)" />
           <use id="l_turn_01" xlink:href="#wire12ga"
-            transform="translate(-13.5,-1.75) scale(1.0,-1.0)" />
+            transform="translate(-13.5,-1.75)" />
           <use id="r_turn_01" xlink:href="#wire12ga"
-            transform="translate(11.75,-1.75) scale(1.0,-1.0)" />
+            transform="translate(11.75,-1.75)" />
           <use id="l_turn_02" xlink:href="#wire12ga"
-            transform="translate(-10.0,-1.75) scale(1.0,-1.0)" />
+            transform="translate(-10.0,-1.75)" />
           <use id="r_turn_12" xlink:href="#wire12ga"
-            transform="translate(10.0,1.75) scale(1.0,-1.0)" />
+            transform="translate(10.0,1.75)" />
           <use id="l_turn_13" xlink:href="#wire12ga"
-            transform="translate(-11.75,1.75) scale(1.0,-1.0)" />
+            transform="translate(-11.75,1.75)" />
           <use id="r_turn_13" xlink:href="#wire12ga"
-            transform="translate(13.5,1.75) scale(1.0,-1.0)" />
+            transform="translate(13.5,1.75)" />
           <use id="l_turn_4" xlink:href="#wire12ga"
-            transform="translate(-15.25,1.75) scale(1.0,-1.0)" />
+            transform="translate(-15.25,1.75)" />
           <!-- use id="r_turn_4" xlink:href="#wire12ga"
-            transform="translate(17.0,1.75) scale(1.0,-1.0)" / -->
+            transform="translate(17.0,1.75)" / -->
           <path id="leads" d="
               M -17.0,-1.75
               L -30.0,-1.75
@@ -139,23 +139,23 @@
           <!-- use id="l_turn_00" xlink:href="#wire20ga"
             transform="translate(-17.0,-0.5) scale(1.0,-1.0)" / -->
           <use id="r_turn_00" xlink:href="#wire20ga"
-            transform="translate(16.5,-0.5) scale(1.0,-1.0)" />
+            transform="translate(16.5,-0.5)" />
           <use id="l_turn_01" xlink:href="#wire20ga"
-            transform="translate(-16.0,-0.5) scale(1.0,-1.0)" />
+            transform="translate(-16.0,-0.5)" />
           <use id="r_turn_01" xlink:href="#wire20ga"
-            transform="translate(15.5,-0.5) scale(1.0,-1.0)" />
+            transform="translate(15.5,-0.5)" />
           <use id="l_turn_02" xlink:href="#wire20ga"
-            transform="translate(-15.0,-0.5) scale(1.0,-1.0)" />
+            transform="translate(-15.0,-0.5)" />
           <use id="r_turn_12" xlink:href="#wire20ga"
-            transform="translate(15.0,0.5) scale(1.0,-1.0)" />
+            transform="translate(15.0,0.5)" />
           <use id="l_turn_13" xlink:href="#wire20ga"
-            transform="translate(-15.5,0.5) scale(1.0,-1.0)" />
+            transform="translate(-15.5,0.5)" />
           <use id="r_turn_13" xlink:href="#wire20ga"
-            transform="translate(16.0,0.5) scale(1.0,-1.0)" />
+            transform="translate(16.0,0.5)" />
           <use id="l_turn_4" xlink:href="#wire20ga"
-            transform="translate(-16.5,0.5) scale(1.0,-1.0)" />
+            transform="translate(-16.5,0.5)" />
           <!-- use id="r_turn_4" xlink:href="#wire20ga"
-            transform="translate(17.0,0.5) scale(1.0,-1.0)" / -->
+            transform="translate(17.0,0.5)" / -->
           <path id="leads" d="
               M -17.0,-0.5
               L -30.0,-0.5
@@ -275,7 +275,7 @@
         width="1.0" height="23.0"
         fill="Maroon" stroke-linejoin="round"/>
       <use id="lower_sensor" xlink:href="#sensor"
-        transform="translate(0.0,0.0) scale(1.0,1.0)" />
+        transform="translate(0.0,0.0)" />
       <use id="upper_sensor" xlink:href="#sensor"
         transform="translate(0.0,48.0) scale(1.0,-1.0)" />
       <!-- Cartridge section outline material: 6061 aluminum tubing -->
@@ -286,15 +286,15 @@
         width="2.0" height="&cart_len;"
         fill="Silver" stroke-linejoin="round"/>
       <use id="heating_coil" xlink:href="#coil_0"
-        transform="translate(0.0,5.0) scale(1.0,1.0)" />
+        transform="translate(0.0,5.0)" />
       <use id="top_heating_coil" xlink:href="#coil_1"
-        transform="translate(0.0,45.0) scale(1.0,1.0)" />
+        transform="translate(0.0,45.0)" />
       <use id="hot_fiber" xlink:href="#optical_fiber"
-        transform="translate(5.0,0.75) scale(1.0,1.0)" />
+        transform="translate(5.0,0.75)" />
       <use id="warm_fiber" xlink:href="#optical_fiber"
-        transform="translate(5.0,22.25) scale(1.0,1.0)" />
+        transform="translate(5.0,22.25)" />
       <use id="cool_fiber" xlink:href="#optical_fiber"
-        transform="translate(5.0,47.25) scale(1.0,-1.0)" />
+        transform="translate(5.0,47.25)" />
     </g>
   </g>
 </svg>

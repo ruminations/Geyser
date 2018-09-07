@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- copyright August 2018 John Hull, ASSAIL licensed:
+     https://github.com/ruminations/Licenses -->
+<!DOCTYPE svg [
+  <!ENTITY x_extent  "20.0">
+  <!ENTITY x_view   "1000.0">
+  <!ENTITY y_extent  "10.0">
+  <!ENTITY y_view   "500.0">
+  <!ENTITY trace   "0.25"><!-- copper trace width in mm -->
+  <!ENTITY trace_r "0.75"><!-- copper trace minimum radius in mm -->
+  <!ENTITY outer_r "15.394218142324979"><!-- splice base radius in mm -->
+  <!ENTITY cos6  "0.7458914215262049"><!-- .75*cos(6.0*pi/180) -->
+  <!ENTITY sin6  "0.0783963474507401"><!-- .75*cos(6.0*pi/180) -->
+  <!ENTITY arc_c_r "7.175079175129219"><!-- inside-turn radius centers -->
+  <!ENTITY cart_out_r "22.225"> <!-- 1 3/4" tubing OD radius in mm -->
+  <!ENTITY cart_in_r  "20.1168"><!-- #14 wall tubing ID radius in mm -->
+  ]>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     enable-background="new 0 0 &x_view; &y_view;"
+     width="&x_extent;cm" height="&y_extent;cm"
+     viewBox="0 0 &x_view; &y_view;" x="0px"  y="0px">
+  <g id="group_0" transform="translate(500.0,250.0) scale(1.0,-1.0)">
+    <rect id="background" x="-500.0" y="-250.0"
+      width="1000.0" height="500.0"
+      fill="#FFFF99" stroke-linejoin="miter"/>
+    <g id="assembly" transform="scale(10,10)">
+      <!-- 1 mm == 1.0 in this group -->
+      <defs id="defs_0">
+        <g id="hairpin" transform="translate(0.0,-&arc_c_r;)">
+          <path id="arc" d="
+              M -1.528728775289432,-7.369803544631778
+              L -&cos6;,&sin6;
+              A &trace_r;,&trace_r; 0 0 0 &cos6;,&sin6;
+              L 1.528728775289432,-7.369803544631778
+            "
+            fill="none" stroke="Chocolate"
+            stroke-width="&trace;" stroke-linejoin="round"/>
+        </g>
+        <g id="splice" transform="translate(0.0,-&arc_c_r;)">
+          <path id="base" d="
+              M -1.528728775289432,-7.369803544631778
+              A &trace_r;,&trace_r; 0 0 1 -0.8229301746715362,-8.197127502544049
+              A &outer_r;,&outer_r; 0 0 1 0.8229301746715362,-8.197127502544049
+              A &trace_r;,&trace_r; 0 0 1 1.528728775289432,-7.369803544631778
+            "
+            fill="none" stroke="Chocolate"
+            stroke-width="&trace;" stroke-linejoin="round"/>
+        </g>
+        <g id="pad">
+          <path id="arc" d="
+              M -0.756637,-1.02
+              A 1.27,1.27 0 0 0 -0.756637,1.02
+              L 0.756637,1.02
+              A 1.27,1.27 0 0 0 0.756637,-1.02
+              L -0.756637,-1.02
+            "
+            fill="Chocolate" stroke="none"/>
+          <rect id="background" x="-0.32" y="-0.32"
+            width="0.64" height="0.64"
+            fill="Gold" stroke="none"/>
+        </g>
+        <g id="header" transform="rotate(-24.0)">
+          <use id="pad_gr" xlink:href="#pad"
+            transform="translate(0.0,2.54)" />
+          <use id="pad_pr" xlink:href="#pad"
+            transform="translate(0.0,0.0)" />
+          <use id="pad_br" xlink:href="#pad"
+            transform="translate(0.0,-2.54)" />
+        </g>
+        <g id="bridge_i" transform="translate(0.0,-&arc_c_r;)">
+          <use id="connect" xlink:href="#header"
+            transform="translate(-0.76732,-3.798125)" />
+          <path id="arc" d="
+              M -1.528728775289432 ,-7.369803544631778
+              L -1.4633984857471485,-6.748227360026607
+              M  1.528728775289432 ,-7.369803544631778
+              L  0.9407561694088813,-1.77561788318524
+            "
+            fill="none" stroke="Chocolate"
+            stroke-width="&trace;" stroke-linejoin="round"/>
+        </g>
+        <g id="bridge_o" transform="translate(0.0,-&arc_c_r;)">
+          <use id="connect" xlink:href="#header"
+            transform="translate(-0.76732,-3.798125)" />
+          <path id="arc" d="
+              M -1.528728775289432 ,-7.369803544631778
+              L -1.4633984857471485,-6.748227360026607
+              M  1.528728775289432 ,-7.369803544631778
+              L  1.202077327578015, -4.261922621605923
+              A &trace_r;,&trace_r; 0 0 1 0.37778955860107,-3.5944275475304583
+              L  0.12915908475900165,-3.620559663347372
+            "
+            fill="none" stroke="Chocolate"
+            stroke-width="&trace;" stroke-linejoin="round"/>
+        </g>
+        <g id="section">
+          <use id="spl_b" xlink:href="#splice"
+            transform="rotate(-12.0)" />
+          <use id="hp" xlink:href="#hairpin" />
+          <use id="spl_f" xlink:href="#splice"
+            transform="rotate(12.0)" />
+        </g>
+        <g id="gauge">
+          <use id="hp_b4" xlink:href="#hairpin"
+            transform="rotate(-168.0)" />
+          <use id="spl_b" xlink:href="#splice"
+            transform="rotate(-156.0)" />
+          <use id="hp_b3" xlink:href="#hairpin"
+            transform="rotate(-144.0)" />
+          <use id="sec_b3" xlink:href="#section"
+            transform="rotate(-120.0)" />
+          <use id="hp_b2" xlink:href="#hairpin"
+            transform="rotate(-96.0)" />
+          <use id="sec_b2" xlink:href="#section"
+            transform="rotate(-72.0)" />
+          <use id="hp_b1" xlink:href="#hairpin"
+            transform="rotate(-48.0)" />
+          <use id="sec_b1" xlink:href="#section"
+            transform="rotate(-24.0)" />
+          <use id="sec_f1" xlink:href="#section"
+            transform="rotate(24.0)" />
+          <use id="hp_f1" xlink:href="#hairpin"
+            transform="rotate(48.0)" />
+          <use id="sec_f2" xlink:href="#section"
+            transform="rotate(72.0)" />
+          <use id="hp_f2" xlink:href="#hairpin"
+            transform="rotate(96.0)" />
+          <use id="sec_f3" xlink:href="#section"
+            transform="rotate(120.0)" />
+          <use id="hp_f3" xlink:href="#hairpin"
+            transform="rotate(144.0)" />
+          <use id="sec_f4" xlink:href="#section"
+            transform="rotate(168.0)" />
+       </g>
+      </defs>
+      <g id="inside_sensor" transform="translate(-25.0,0.0)">
+        <circle cx="0.0" cy="0.0"
+          stroke="none" stroke-width="0"
+          fill="Silver" r="&cart_out_r;"/>
+        <circle cx="0.0" cy="0.0"
+          stroke="none" stroke-width="0"
+          fill="SlateGray" r="&cart_in_r;"/>
+        <circle cx="0.0" cy="0.0"
+          stroke="none" stroke-width="0"
+          fill="PowderBlue" r="16.0"/>
+        <circle cx="0.0" cy="0.0"
+          stroke="none" stroke-width="0"
+          fill="SlateGray" r="6.0"/>
+        <circle cx="0.0" cy="0.0"
+          stroke="none" stroke-width="0"
+          fill="CadetBlue" r="5.0"/>
+        <circle cx="0.0" cy="0.0"
+          stroke="none" stroke-width="0"
+          fill="#FFFF99" r="2.69060"/>
+        <use id="sensor" xlink:href="#gauge" />
+        <use id="br" xlink:href="#bridge_i"/>
+      </g>
+      <g id="outside_sensor" transform="translate(25.0,0.0) scale(-1.0,1.0)">
+        <circle cx="0.0" cy="0.0"
+          stroke="none" stroke-width="0"
+          fill="Silver" r="&cart_out_r;"/>
+        <circle cx="0.0" cy="0.0"
+          stroke="none" stroke-width="0"
+          fill="PowderBlue" r="&cart_in_r;"/>
+        <circle cx="0.0" cy="0.0"
+          stroke="none" stroke-width="0"
+          fill="#FFFF99" r="2.69060"/>
+        <use id="sensor" xlink:href="#gauge" />
+        <use id="br" xlink:href="#bridge_o"/>
+        <circle cx="-18.0" cy="0.0"
+          stroke="none" stroke-width="0"
+          fill="CadetBlue" r="1.0"/>
+        <circle cx="18.0" cy="0.0"
+          stroke="none" stroke-width="0"
+          fill="CadetBlue" r="1.0"/>
+      </g>
+    </g>
+  </g>
+</svg>
