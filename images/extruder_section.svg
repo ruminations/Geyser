@@ -11,10 +11,15 @@
   <!ENTITY tube_out_r "1.5875"> <!-- 1/8" tubing OD radius in mm -->
   <!ENTITY tube_in_r  "1.19063"><!-- 3/32" tubing ID radius in mm -->
   <!ENTITY tube_wall  "0.39688"><!-- 1/64" tubing wall in mm -->
-  <!ENTITY cart_out_r "22.225"> <!-- 1 3/4" tubing OD radius in mm -->
-  <!ENTITY cart_in_r  "20.1168"><!-- #14 wall tubing ID radius in mm -->
-  <!ENTITY cart_out_d "44.45">  <!-- 1 3/4" tubing OD in mm -->
-  <!ENTITY cart_len   "70.0">   <!-- 1 3/4" tubing length in mm -->
+  <!-- schedule 80s 1-1/2" pipe (nominal OD == 1.9"  == 48.26 mm )
+                              (nominal wall == .200" ==  5.08 mm ) -->
+  <!ENTITY cart_out_r "23.0"><!-- finish outside radius in mm -->
+  <!ENTITY cart_thd_r "22.133974"><!-- M23x1 thread inside radius in mm -->
+  <!ENTITY cart_in_r  "20.0"><!-- finish  inside radius in mm -->
+  <!ENTITY cart_wall   "3.0"><!-- finish wall thickness in mm -->
+  <!ENTITY cart_out_d "46.0"><!-- finish outside diameter in mm -->
+  <!ENTITY cart_len   "70.0"><!-- finish length in mm -->
+  <!ENTITY cart_len_y "68.0"><!-- length above origin in mm -->
   ]>
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -28,33 +33,66 @@
     <g id="assembly" transform="scale(5.0,5.0)"><!-- 1 mm == 1.0 in this group -->
       <!-- <text id="text_0" text-anchor="middle"
         dominant-baseline="text-before-edge"
-        font-family="Arial" font-size="3.97811"
-        transform="translate(-220.58875,-0.99453) scale(1.0,-1.0)"
+        font-family="Arial" font-size="4.0"
+        transform="translate(-0.0,-0.0) scale(1.0,-1.0)"
         fill="#404040" stroke-width="0.0">example text</text> -->
       <defs id="defs_0">
         <g id="sensor">
           <!-- Steel washer section outline material: 304 stainless steel -->
           <path id="washer" d="
-              M -5.0,0.0
-              L -2.69060,-4.0
-              L -&cart_in_r;,-4.0
-              L -&cart_in_r;,0.0
-              L -16.0,0.0
-              L -16.0,-3.0
+              M -6.8660254,0.5
+              L -4.8453,-3.0
               L -6.0,-3.0
-              L -6.0,0.0
-              L -5.0,0.0
-              M 5.0,0.0
-              L 2.69060,-4.0
-              L &cart_in_r;,-4.0
-              L &cart_in_r;,0.0
-              L 16.0,0.0
-              L 16.0,-3.0
+              L -7.443376,-0.5
+              L -18.0,-0.5
+              L -19.5,-2.0
+              L -&cart_in_r;,-2.0
+              L -&cart_in_r;,-1.0
+              L -19.0,0.0
+              L -&cart_in_r;,1.0
+              L -&cart_in_r;,2.0
+              L -19.5,2.0
+              L -18.0,0.5
+              L -6.8660254,0.5
+              M 6.8660254,0.5
+              L 4.8453,-3.0
               L 6.0,-3.0
-              L 6.0,0.0
-              L 5.0,0.0
+              L 7.443376,-0.5
+              L 18.0,-0.5
+              L 19.5,-2.0
+              L &cart_in_r;,-2.0
+              L &cart_in_r;,-1.0
+              L 19.0,0.0
+              L &cart_in_r;,1.0
+              L &cart_in_r;,2.0
+              L 19.5,2.0
+              L 18.0,0.5
+              L 6.8660254,0.5
             "
             fill="SlateGray" stroke="none"
+            stroke-width="0.0" stroke-linejoin="round"/>
+        </g>
+        <g id="bearing">
+          <!-- Oil impregnated bronze bushing -->
+          <path id="bearing_p" d="
+              M -6.0,1.7320508
+              L -3.2679492,-3.0
+              L -5.0,-3.0
+              L -6.8660254,0.5
+              L -6.8660254,1.7320508
+              L -6.0,1.7320508
+            "
+            fill="DarkGoldenrod" stroke="none"
+            stroke-width="0.0" stroke-linejoin="round"/>
+          <path id="bearing_p" d="
+              M 6.0,1.7320508
+              L 3.2679492,-3.0
+              L 5.0,-3.0
+              L 6.8660254,0.5
+              L 6.8660254,1.7320508
+              L 6.0,1.7320508
+            "
+            fill="DarkGoldenrod" stroke="none"
             stroke-width="0.0" stroke-linejoin="round"/>
         </g>
         <g id="wire12ga">
@@ -178,48 +216,170 @@
             stroke-width=".0436" stroke-linejoin="miter"/>
         </g>
         <g id="optical_fiber">
-          <!-- Fiber leading infrared radiation to an elctro-optical pyrometer -->
-          <path id="fiber" d="
-              M 0.25,0.0
-              L 20.0,0.0
-            "
-            fill="none" stroke="CadetBlue"
-            stroke-width="1.5" stroke-linejoin="round"/>
+          <!-- Fiber leading infrared radiation to an electro-optical pyrometer
+               constructed from a #15H (heavy wall) hypotube and a 1.2 mm OD
+               1.0 mm ID boro-silicate capillary. -->
+          <rect id="ss_hypotube" x="0.5" y="-0.9144"
+            width="20.0" height="1.8288"
+            fill="SlateGray" stroke-linejoin="round"/>
+          <rect id="clearance" x="0.5" y="-0.635"
+            width="20.0" height="1.27"
+            fill="White" stroke-linejoin="round"/>
+          <rect id="boro_silicate" x="0.5" y="-0.6"
+            width="20.0" height="1.2"
+            fill="Salmon" stroke-linejoin="round"/>
+          <rect id="air" x="0.5" y="-0.345"
+            width="20.0" height="0.69"
+            fill="PeachPuff" stroke-linejoin="round"/>
         </g>
         <linearGradient
           id="cart_grad" gradientUnits="objectBoundingBox"
-          x2="0%" x1="100%">
+          x1="0%" x2="100%" y1="0%" y2="0%">
             <stop stop-color="AliceBlue" offset="0%"/>
             <stop stop-color="PowderBlue" offset="24%"/>
             <stop stop-color="CadetBlue" offset="50%"/>
             <stop stop-color="PowderBlue" offset="76%"/>
             <stop stop-color="AliceBlue" offset="100%"/>
         </linearGradient>
+        <linearGradient
+          id="hole_grad" gradientUnits="objectBoundingBox"
+          x1="0%" x2="0%" y1="0%" y2="100%">
+            <stop stop-color="AliceBlue" offset="0%"/>
+            <stop stop-color="PowderBlue" offset="24%"/>
+            <stop stop-color="CadetBlue" offset="50%"/>
+            <stop stop-color="PowderBlue" offset="76%"/>
+            <stop stop-color="AliceBlue" offset="100%"/>
+        </linearGradient>
+        <g id="compressed_Oring"> <!-- 1.5mm O-ring in half 2mm diagonal square -->
+          <path id="Oring_p" d="
+              M 0.0,-0.41923276684903
+              L 0.0, 0.41923276684903
+              A 0.24056166455303,0.24056166455303 0 0 0 0.410664448852,0.589335551148
+              L 0.59175170953614,0.40824829046386
+              A 0.57735026918963,0.57735026918963 0 0 0 0.59175170953614,-0.40824829046386
+              L 0.410664448852,-0.589335551148
+              A 0.24056166455303,0.24056166455303 0 0 0 0.0,-0.41923276684903
+            "
+            fill="Olive" stroke="none"
+            stroke-width="0.0" stroke-linejoin="round"/>
+        </g>
+        <g id="cartridge_profile"> <!-- #14 Stubbs gauge 304 stainless steel tubing -->
+          <path id="cartridge_p" d="
+              M -&cart_out_r;,-2.0
+              L -&cart_in_r;,-2.0
+              L -&cart_in_r;,-1.0
+              L        -21.0, 0.0
+              L -&cart_in_r;, 1.0
+              L -&cart_in_r;, &cart_len_y;
+              L -&cart_thd_r;,&cart_len_y;
+              L -&cart_thd_r;,67.5
+              L -&cart_out_r;,67.0
+              L -&cart_thd_r;,66.5
+              L -&cart_out_r;,66.0
+              L -&cart_thd_r;,65.5
+              L -&cart_out_r;,65.0
+              L -&cart_thd_r;,64.5
+              L -&cart_out_r;,64.0
+              L -&cart_thd_r;,63.5
+              L -&cart_out_r;,63.0
+              L -&cart_thd_r;,62.5
+              L -&cart_out_r;,62.0
+              L -&cart_thd_r;,61.5
+              L -&cart_out_r;,61.0
+              L -&cart_thd_r;,60.5
+              L -&cart_out_r;,60.0
+              L -&cart_out_r;,-2.0
+            "
+            fill="Silver" stroke="none"
+            stroke-width="0.0" stroke-linejoin="round"/>
+          <!-- binding wire, #24 piano wire gauge .0551" == 1.4 mm -->
+        </g>
+        <g id="brass_ring">
+          <rect id="brass_ll" x="-7.14375" y="-2.5"
+            width="0.254" height="5.0"
+            fill="GoldenRod" stroke-linejoin="round"/>
+          <rect id="brass_lr" x="6.88974" y="-2.5"
+            width="0.254" height="5.0"
+            fill="GoldenRod" stroke-linejoin="round"/>
+        </g>
+        <g id="lower_subassembly">
+          <rect id="silicone_ll" x="-8.0" y="0.5"
+            width="1.0" height="25.0"
+            fill="Maroon" stroke-linejoin="round"/>
+          <rect id="silicone_lr" x="7.0" y="0.5"
+            width="1.0" height="25.0"
+            fill="Maroon" stroke-linejoin="round"/>
+          <use id="lower_sensor" xlink:href="#sensor"
+            transform="translate(0.0,0.0)" />
+          <use id="brass_l" xlink:href="#brass_ring"
+            transform="translate(0.0,3.0)" />
+          <use id="brass_m" xlink:href="#brass_ring"
+            transform="translate(0.0,23.0)" />
+          <use id="lower_bearing" xlink:href="#bearing"
+            transform="translate(0.0,0.0)" />
+          <circle cx="-&cart_in_r;" cy="0.0"
+            stroke="none" stroke-width="0"
+            fill="CadetBlue" r="0.7"/>
+          <circle cx="&cart_in_r;" cy="0.0"
+            stroke="none" stroke-width="0"
+            fill="CadetBlue" r="0.7"/>
+          <use id="heating_coil" xlink:href="#coil_0"
+            transform="translate(0.0,13.0)" />
+          <use id="hot_fiber" xlink:href="#optical_fiber"
+            transform="translate(6.0,3.0)" />
+          <use id="warm_fiber" xlink:href="#optical_fiber"
+            transform="translate(6.0,23.0)" />
+        </g>
+        <g id="upper_subassembly">7.14375
+          <rect id="silicone_ul" x="-8.0" y="-5.5"
+            width="1.0" height="5.0"
+            fill="Maroon" stroke-linejoin="round"/>
+          <rect id="silicone_ur" x="7.0" y="-5.5"
+            width="1.0" height="5.0"
+            fill="Maroon" stroke-linejoin="round"/>
+          <use id="brass_u" xlink:href="#brass_ring"
+            transform="translate(0.0,-3.0)" />
+          <use id="upper_sensor" xlink:href="#sensor"
+            transform="translate(0.0,0.0) scale(1.0,-1.0)" />
+          <use id="upper_bearing" xlink:href="#bearing"
+            transform="translate(0.0,0.0) scale(1.0,-1.0)" />
+          <use id="Oring_l" xlink:href="#compressed_Oring"
+            transform="translate(-&cart_in_r;,0.0)" />
+          <use id="Oring_r" xlink:href="#compressed_Oring"
+            transform="translate(&cart_in_r;,0.0) scale(-1.0,1.0)" />
+          <use id="top_heating_coil" xlink:href="#coil_1"
+            transform="translate(0.0,-5.5)" />
+          <use id="cool_fiber" xlink:href="#optical_fiber"
+            transform="translate(6.0,-3.0)" />
+        </g>
       </defs>
       <!-- Cartridge background -->
-      <rect id="cartridge_background" x="-&cart_out_r;" y="-4.0"
+      <rect id="cartridge_background" x="-&cart_out_r;" y="-2.0"
         width="&cart_out_d;" height="&cart_len;"
         fill="url(#cart_grad)" stroke-linejoin="round"/>
       <!-- Die section outline material: tool steel -->
+      <!-- Die section at reference extends from [-5.0,0.0] to [5.0,0.0] -->
       <path id="die" d="
           M -0.2,-0.92376
           L -0.2,-6.06218
           L -1.5,-6.06218
-          L -5.0,0.0
-          L -5.0,23.0
-          L -4.747816022692241,48.43679546155183563
-          L -1.5,54.06218
-          L -1.0,54.06218
+          L -6.0,1.7320508
+          L -6.0,26.0
+          L -5.72,54.0
+          L -5.72,58.7529234
+          L -1.5,66.06218
+          L -1.0,66.06218
           L -1.0,0.0
           L -0.2,-0.92376
           M 0.2,-0.92376
           L 0.2,-6.06218
           L 1.5,-6.06218
-          L 5.0,0.0
-          L 5.0,23.0
-          L 4.747816022692241,48.43679546155183563
-          L 1.5,54.06218
-          L 1.0,54.06218
+          L 6.0,1.7320508
+          L 6.0,26.0
+          L 5.72,54.0
+          L 5.72,58.7529234
+          L 1.5,66.06218
+          L 1.0,66.06218
           L 1.0,0.0
           L 0.2,-0.92376
         "
@@ -238,7 +398,7 @@
           L 1.0,0.0
           L 0.2,-0.92376
         "
-        fill="DarkGoldenRod" stroke="none"
+        fill="Sienna" stroke="none"
         stroke-width="0.0" stroke-linejoin="round"/>
       <!-- Molten plastic section outline -->
       <path id="molten" d="
@@ -247,54 +407,34 @@
           L -0.2,-6.06218
           L -0.2,-0.92376
           L -1.0,0.0
-          L -1.0,6.0
-          A 1.0,1.0 0 0 0 1.0,6.0
+          L -1.0,16.0
+          A 1.0,1.0 0 0 0 1.0,16.0
           L 1.0,0.0
           L 0.2,-0.92376
         "
-        fill="Orange" stroke="none"
+        fill="DarkOrange" stroke="none"
         stroke-width="0.0" stroke-linejoin="round"/>
       <!-- Filament section outline -->
-      <rect id="filament" x="-0.875" y="8.0" width="1.75" height="66.0"
+      <rect id="filament" x="-0.875" y="23.0" width="1.75" height="55.0"
         fill="Brown" stroke-linejoin="round"/>
       <!-- Plastic section outline -->
       <path id="plastic" d="
-          M -1.0,8.0
-          L -1.0,6.0
-          A 1.0,1.0 0 0 0 1.0,6.0
-          L 1.0,8.0
-          A 1.0,1.0 0 0 1 -1.0,8.0
+          M -1.0,23.0
+          L -1.0,16.0
+          A 1.0,1.0 0 0 0 1.0,16.0
+          L 1.0,23.0
+          A 1.0,1.0 0 0 1 -1.0,23.0
         "
         fill="Red" stroke="none"
         stroke-width="0.0" stroke-linejoin="round"/>
-      <!-- Silicone section outline material: high temperature silicone tubing -->
-      <rect id="silicone_l" x="-6.0" y="0.0"
-        width="1.0" height="23.0"
-        fill="Maroon" stroke-linejoin="round"/>
-      <rect id="silicone_r" x="5.0" y="0.0"
-        width="1.0" height="23.0"
-        fill="Maroon" stroke-linejoin="round"/>
-      <use id="lower_sensor" xlink:href="#sensor"
+      <use id="cartridge_l" xlink:href="#cartridge_profile"
+        transform="scale(1.0,1.0)" />
+      <use id="cartridge_r" xlink:href="#cartridge_profile"
+        transform="scale(-1.0,1.0)" />
+      <use id="lower" xlink:href="#lower_subassembly"
         transform="translate(0.0,0.0)" />
-      <use id="upper_sensor" xlink:href="#sensor"
-        transform="translate(0.0,48.0) scale(1.0,-1.0)" />
-      <!-- Cartridge section outline material: 6061 aluminum tubing -->
-      <rect id="cartridge" x="-22.0" y="-4.0"
-        width="2.0" height="&cart_len;"
-        fill="Silver" stroke-linejoin="round"/>
-      <rect id="cartridge" x="20.0" y="-4.0"
-        width="2.0" height="&cart_len;"
-        fill="Silver" stroke-linejoin="round"/>
-      <use id="heating_coil" xlink:href="#coil_0"
-        transform="translate(0.0,5.0)" />
-      <use id="top_heating_coil" xlink:href="#coil_1"
-        transform="translate(0.0,45.0)" />
-      <use id="hot_fiber" xlink:href="#optical_fiber"
-        transform="translate(5.0,0.75)" />
-      <use id="warm_fiber" xlink:href="#optical_fiber"
-        transform="translate(5.0,22.25)" />
-      <use id="cool_fiber" xlink:href="#optical_fiber"
-        transform="translate(5.0,47.25)" />
+      <use id="upper" xlink:href="#upper_subassembly"
+        transform="translate(0.0,60.0)" />
     </g>
   </g>
 </svg>
